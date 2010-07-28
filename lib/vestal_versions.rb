@@ -93,7 +93,7 @@ module VestalVersions
     end
   end
 
-  extend Configuration
+  extend VersionConfiguration
 end
 
 ActiveRecord::Base.send(:include, VestalVersions)

@@ -1,7 +1,7 @@
 module VestalVersions
   # Allows for easy application-wide configuration of options passed into the +versioned+ method.
-  module Configuration
-    # The VestalVersions module is extended by VestalVersions::Configuration, allowing the
+  module VersionConfiguration
+    # The VestalVersions module is extended by VestalVersions::VersionConfiguration, allowing the
     # +configure method+ to be used as follows in a Rails initializer:
     #
     #   VestalVersions.configure do |config|
@@ -16,7 +16,7 @@ module VestalVersions
     # If an option is given in both an initializer and in the options passed to +versioned+, the
     # value given in the model itself will take precedence.
     def configure
-      yield Configuration
+      yield VersionConfiguration
     end
 
     class << self

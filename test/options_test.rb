@@ -6,8 +6,8 @@ class OptionsTest < Test::Unit::TestCase
       @options = {:dependent => :destroy}
       @configuration = {:class_name => 'MyCustomVersion'}
 
-      VestalVersions::Configuration.options.clear
-      @configuration.each{|k,v| VestalVersions::Configuration.send("#{k}=", v) }
+      VestalVersions::VersionConfiguration.options.clear
+      @configuration.each{|k,v| VestalVersions::VersionConfiguration.send("#{k}=", v) }
 
       @prepared_options = User.prepare_versioned_options(@options.dup)
     end
@@ -23,7 +23,7 @@ class OptionsTest < Test::Unit::TestCase
     end
 
     teardown do
-      VestalVersions::Configuration.options.clear
+      VestalVersions::VersionConfiguration.options.clear
       User.prepare_versioned_options({})
     end
   end

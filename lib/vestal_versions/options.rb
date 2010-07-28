@@ -23,7 +23,7 @@ module VestalVersions
       # standard +has_many+ associations.
       def prepare_versioned_options(options)
         options.symbolize_keys!
-        options.reverse_merge!(Configuration.options)
+        options.reverse_merge!(VersionConfiguration.options)
         options.reverse_merge!(
           :class_name => 'VestalVersions::Version',
           :dependent => :delete_all

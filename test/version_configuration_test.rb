@@ -1,23 +1,23 @@
 require File.join(File.dirname(__FILE__), 'test_helper')
 
-class ConfigurationTest < Test::Unit::TestCase
+class VersionConfigurationTest < Test::Unit::TestCase
   context 'Global configuration options' do
     setup do
       module Extension; end
-      
+
       @options = {
         'class_name' => 'CustomVersion',
         :extend => Extension,
         :as => :parent
       }
-      
+
       VestalVersions.configure do |config|
         @options.each do |key, value|
           config.send("#{key}=", value)
         end
       end
 
-      @configuration = VestalVersions::Configuration.options
+      @configuration = VestalVersions::VersionConfiguration.options
     end
 
     should 'should be a hash' do
@@ -33,7 +33,7 @@ class ConfigurationTest < Test::Unit::TestCase
     end
 
     teardown do
-      VestalVersions::Configuration.options.clear
+      VestalVersions::VersionConfiguration.options.clear
     end
   end
 end
