@@ -89,7 +89,8 @@ module VestalVersions
       include Reload
 
       prepare_versioned_options(options)
-      has_many :versions, options, &block
+      #has_many :versions, options, &block
+      has_many :versions, :class_name => 'VestalVersions::Version', :foreign_key => 'versioned_id', :conditions => { :versioned_type => self.name }
     end
   end
 
